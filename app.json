@@ -1,11 +1,17 @@
 {
-  "addons": [
-    "heroku-postgresql"
+  "addons": ["heroku-postgresql"],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
   ],
-  "buildpacks": [],
   "env": {},
-  "formation": {},
-  "name": "truckstop-cc9",
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "name": "steppico",
   "scripts": {},
   "stack": "heroku-18"
 }

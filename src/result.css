@@ -1,0 +1,73 @@
+.result-block {
+  overflow: scroll;
+  height: 100%;
+  width: 100%;
+}
+
+.filter-icon-block {
+  grid-area: icon;
+  background-color: grey;
+}
+.address-block {
+  grid-area: address;
+  background-color: aqua;
+  border-bottom: solid 2px;
+}
+.info-block {
+  grid-area: texts;
+  background-color: pink;
+}
+.unleaded-block {
+  grid-area: unleaded;
+  background-color: lightgreen;
+}
+.midgrade-block {
+  grid-area: midgrade;
+  background-color: rgb(196, 62, 196);
+}
+.diesel-block {
+  grid-area: diesel;
+  background-color: rgb(0, 17, 255);
+}
+.propane-block {
+  grid-area: propane;
+  background-color: rgb(32, 110, 32);
+}
+.amenities-block {
+  grid-area: amenities;
+  background-color: rgb(85, 19, 55);
+}
+.restaurants-block {
+  grid-area: restaurants;
+  background-color: rgb(158, 160, 39);
+}
+
+.result-container {
+  display: grid;
+  margin: auto;
+  border: solid 2px;
+  width: 60%;
+  margin-bottom: 30px;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "icon icon icon icon icon "
+    "address address address address address"
+    "texts texts unleaded diesel propane"
+    "texts texts midgrade diesel propane"
+    "amenities amenities amenities restaurants restaurants";
+}
+
+.price {
+  font-size: 3vh;
+  font-weight: bold;
+}
+
+.filter_icon {
+  text-align: left;
+  margin-left: 100px;
+}
+
+p {
+  font-size: 2vh;
+}

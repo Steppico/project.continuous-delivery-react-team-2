@@ -33,10 +33,10 @@ const Location = function(data) {
   this.longitude = data.longitude;
   this.latitude = data.latitude;
   this.name = data.name;
-  this.address = data.address1;
-  this.state = data.state;
-  this.city = data.city;
-  this.highway = data.highway;
+  this.address = data.address1 || "Washington DC 1";
+  this.state = data.state || "New England";
+  this.city = data.city || "Rome";
+  this.highway = data.highway || "66";
 };
 
 const root = {

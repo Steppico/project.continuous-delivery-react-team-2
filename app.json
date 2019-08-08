@@ -1,28 +1,9 @@
 {
-<<<<<<< HEAD
   "addons": ["heroku-postgresql"],
   "buildpacks": [],
   "env": {},
   "formation": {},
   "name": "truckstop-cc9",
   "scripts": {},
-=======
-  "addons": [
-    "heroku-postgresql"
-  ],
-  "buildpacks": [
-
-  ],
-  "env": {
-  },
-  "formation": {
-    "web": {
-      "quantity": 1
-    }
-  },
-  "name": "test",
-  "scripts": {
-  },
->>>>>>> 6a3ab831e9ccd16527eaa393909d2c32dfbabb8e
   "stack": "heroku-18"
 }

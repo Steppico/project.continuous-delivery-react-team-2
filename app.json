@@ -4,5 +4,6 @@
   "env": {},
   "formation": {},
   "name": "truckstop-cc9",
-  "scripts": {}
+  "scripts": {},
+  "stack": "heroku-18"
 }

@@ -32,15 +32,17 @@ class Map extends Component {
     return process.env.npm_lifecycle_event === "test" ? (
       <div />
     ) : (
-      <MyMap
-        className="test"
-        containerElement={<div style={{ height: `100%` }} />}
-        mapElement={<div style={{ height: `100%` }} />}
-        onMapLoad={() => {}}
-        onMapClick={() => {}}
-        markers={this.props.locations}
-        onMarkerRightClick={() => {}}
-      />
+      <div>
+        <MyMap
+          className="test"
+          containerElement={<div style={{ height: `100%` }} />}
+          mapElement={<div style={{ height: `100%` }} />}
+          onMapLoad={() => {}}
+          onMapClick={() => {}}
+          markers={this.props.locations}
+          onMarkerRightClick={() => {}}
+        />
+      </div>
     );
   }
 }

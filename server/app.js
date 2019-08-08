@@ -5,6 +5,7 @@ const path = require("path");
 const db = require("./knex.js");
 const graphqlHTTP = require("express-graphql");
 const { buildSchema } = require("graphql");
+require("dotenv").config();
 
 const app = express();
 

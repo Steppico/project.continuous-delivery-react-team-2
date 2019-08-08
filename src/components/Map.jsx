@@ -4,7 +4,6 @@ import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
 
 const MyMap = withGoogleMap(
   (props) =>
-    console.log("protettore", props) || (
       <GoogleMap
         ref={props.onMapLoad}
         defaultZoom={4}
@@ -14,17 +13,15 @@ const MyMap = withGoogleMap(
         <Marker position={{ lat: 14.2, lng: 100.94 }} />
         {props.markers.map(
           (marker) =>
-            console.log("i'll scream", marker) || (
               <Marker
                 key={marker.key}
                 {...marker}
                 onRightClick={() => props.onMarkerRightClick(marker)}
               />
-            )
+            )}
         )}
       </GoogleMap>
     )
-);
 
 class Map extends Component {
   async componentDidMount() {
@@ -34,7 +31,6 @@ class Map extends Component {
   }
 
   render() {
-    console.log("proppy", this.props);
     return process.env.npm_lifecycle_event === "test" ? (
       <div />
     ) : (

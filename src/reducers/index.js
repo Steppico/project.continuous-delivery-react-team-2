@@ -4,11 +4,9 @@ const defaultState = {
 };
 
 const photos = (state = defaultState, action) => {
-  console.log("thisisstate", state);
   switch (action.type) {
     case "SET_LOCATIONS":
       const x = { ...state, locations: action.locations };
-      console.log("xxx", x);
       return x;
     default:
       return state;

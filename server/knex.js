@@ -2,10 +2,13 @@ const knex = require("knex");
 
 const db = knex({
   client: "pg",
-  connection:
-    process.env.DATABASE_URL ||
-    `postgres://${process.env.USER}@127.0.0.1:5432/truckstop`,
-  searchPath: "public",
+  connection: {
+    host: "127.0.0.1",
+    port: 5432,
+    database: "truckstop",
+    user: "postgres",
+    password: "postgres",
+  },
 });
 
 module.exports = db;

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Map from "./containers/Map";
 import Result from "./components/Result";
-import { SearchPage } from "./components/SearchPage";
+import { SearchPage } from "./components/Search-Page";
 
 class App extends Component {
   render() {

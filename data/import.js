@@ -16,7 +16,6 @@ const db = require("../server/knex.js");
         longitude,
         name,
       });
-      console.log(result);
     }
   } catch (err) {
     console.error("Error inserting records", err);

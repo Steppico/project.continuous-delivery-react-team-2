@@ -1,0 +1,118 @@
+/* 
+Things to change: height of .CardContainer to allow for scrolling. 
+Things to change: size of img in .imgContainer so that its responsive
+*/
+.CardContainer {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  width: 30%;
+  height: 400px;
+  align-items: stretch;
+  /* margin-left: auto;
+  margin-right: auto; */
+  overflow: scroll;
+}
+.SingleCardContainer {
+  display: grid;
+  grid-template-columns: 35% 25% 25%;
+  grid-template-rows: 30% 35% 35%;
+  grid-template-areas:
+    "header header header store"
+    "mid main main main"
+    "footer mainbelow mainbelow mainbelow";
+  background-color: #f1f1f1;
+  width: 100%;
+  height: 99%;
+  border-bottom: 2px solid red;
+}
+
+.header {
+  grid-area: header;
+  display: grid;
+  grid-template-columns: 2% 90% 5%;
+  grid-template-rows: 10% 90% 2%;
+  background-color: tan;
+}
+.header-a {
+  grid-column-start: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-end: 2;
+  font-size: 0.8em;
+  justify-content: left;
+  text-align: left;
+  align-items: center;
+}
+.store {
+  grid-area: store;
+  display: grid;
+  grid-template-columns: 5% 90% 5%;
+  grid-template-rows: 10% 90% 2%;
+  background-color: mediumaquamarine;
+}
+.store-a {
+  grid-column-start: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-end: 2;
+  font-size: 0.8em;
+  justify-content: left;
+  text-align: left;
+  align-items: center;
+}
+.imgMainContainer {
+  grid-area: main;
+  background-color: green;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+}
+.imgContainer {
+  height: 35px;
+  width: 40px;
+}
+.img-a {
+  max-width: 100%;
+  max-height: 100%;
+}
+.imgBelowContainer {
+  grid-area: mainbelow;
+  background-color: turquoise;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+}
+.mainbelow-a {
+}
+.mid {
+  grid-area: mid;
+  display: grid;
+  grid-template-columns: 5% 90% 5%;
+  /* grid-template-rows: 2% 90% 8%; */
+  background-color: grey;
+}
+.mid-a {
+  grid-column-start: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-end: 2;
+  font-size: 90%;
+  justify-content: left;
+  text-align: left;
+  align-items: center;
+}
+.footer {
+  grid-area: footer;
+  display: grid;
+  grid-template-columns: 5% 90% 5%;
+  grid-template-rows: 90% 10%;
+  background-color: silver;
+}
+.footer-a {
+  grid-column-start: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-end: 2;
+  font-size: 90%;
+  justify-content: left;
+  text-align: left;
+  align-items: c;
+}

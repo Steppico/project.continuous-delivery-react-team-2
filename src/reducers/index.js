@@ -7,21 +7,28 @@ const defaultState = {
     arbys: false,
     wendys: false,
     otherRestaurants: false,
+    oilChange: false,
+    lightMechanical: false,
+    tirePass: false,
+    truckTireCare: false,
+    travelStop: false,
+    countryStop: false,
+    atm: false,
+    wifi: false,
+    otherAmenities: false,
   },
 };
 
-const photos = (state = defaultState, action) => {
+const truckstops = (state = defaultState, action) => {
   switch (action.type) {
     case "SET_LOCATIONS":
       return { ...state, locations: action.locations };
     case "SET_FILTER": {
-      const x = { ...state, filters: { ...state.filters, ...action.filter } };
-      console.log(x);
-      return x;
+      return { ...state, filters: { ...state.filters, ...action.filter } };
     }
     default:
       return state;
   }
 };
 
-export default photos;
+export default truckstops;

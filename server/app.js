@@ -5,7 +5,6 @@ const path = require("path");
 const db = require("./knex.js");
 const graphqlHTTP = require("express-graphql");
 const { buildSchema } = require("graphql");
-require("dotenv").config();
 
 const app = express();
 
@@ -23,8 +22,7 @@ const schema = buildSchema(`
   }
 
   type Query {
-    locations: [Location]
-    location (name: String, id: Int): Location
+    locations(name: String, state:String, city:String, highway:String): [Location],
   }
 
   `);
@@ -33,32 +31,27 @@ const Location = function(data) {
   this.longitude = data.longitude;
   this.latitude = data.latitude;
   this.name = data.name;
-  this.address = data.address1 || "Washington DC 1";
-  this.state = data.state || "New England";
-  this.city = data.city || "Rome";
-  this.highway = data.highway || "66";
+  this.address = data.address1;
+  this.state = data.state;
+  this.city = data.city;
+  this.highway = data.highway;
 };
 
 const root = {
-  Locations: async () => {
+  locations: async (req) => {
     try {
-      const locations = await db.select().table("locations");
+      let locations;
+      if (Object.keys(req).length === 0) {
+        locations = await db.select().table("locations");
+      } else {
+        locations = await db
+          .select()
+          .where(req)
+          .table("locations");
+      }
       return locations.map((location) => new Location(location));
     } catch (err) {
       console.error("Error loading locations!", err);
-    }
-  },
-  Location: async (req) => {
-    try {
-      const name = req.Name;
-
-      const locations = await db
-        .select()
-        .where("name", name)
-        .table("locations");
-      return locations.map((location) => new Location(location))[0];
-    } catch (err) {
-      console.error("Error loading location!", err);
     }
   },
 };

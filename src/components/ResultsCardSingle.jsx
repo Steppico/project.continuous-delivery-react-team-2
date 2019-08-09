@@ -21,30 +21,30 @@ export const ResultsCardSingle = () => {
         </div>
         <div className="imgMainContainer">
           <div className="imgContainer">
-            <img className="img-a" src={atm} />
+            <img className="img-a" alt="" src={atm} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={wifi} />
+            <img className="img-a" alt="" src={wifi} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={arby} />
+            <img className="img-a" alt="" src={arby} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={wendy} />
+            <img className="img-a" alt="" src={wendy} />
           </div>
         </div>
         <div className="imgBelowContainer">
           <div className="imgContainer">
-            <img className="img-a" src={letterT} />
+            <img className="img-a" alt="" src={letterT} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={letterC} />
+            <img className="img-a" alt="" src={letterC} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={tire} />
+            <img className="img-a" alt="" src={tire} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={oil} />
+            <img className="img-a" alt="" src={oil} />
           </div>
         </div>
         <div className="mid">
@@ -63,30 +63,30 @@ export const ResultsCardSingle = () => {
         </div>
         <div className="imgMainContainer">
           <div className="imgContainer">
-            <img className="img-a" src={atm} />
+            <img className="img-a" alt="" src={atm} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={wifi} />
+            <img className="img-a" alt="" src={wifi} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={arby} />
+            <img className="img-a" alt="" src={arby} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={wendy} />
+            <img className="img-a" alt="" src={wendy} />
           </div>
         </div>
         <div className="imgBelowContainer">
           <div className="imgContainer">
-            <img className="img-a" src={letterT} />
+            <img className="img-a" alt="" src={letterT} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={letterC} />
+            <img className="img-a" alt="" src={letterC} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={tire} />
+            <img className="img-a" alt="" src={tire} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={oil} />
+            <img className="img-a" alt="" src={oil} />
           </div>
         </div>
         <div className="mid">
@@ -105,30 +105,30 @@ export const ResultsCardSingle = () => {
         </div>
         <div className="imgMainContainer">
           <div className="imgContainer">
-            <img className="img-a" src={atm} />
+            <img className="img-a" alt="" src={atm} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={wifi} />
+            <img className="img-a" alt="" src={wifi} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={arby} />
+            <img className="img-a" alt="" src={arby} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={wendy} />
+            <img className="img-a" alt="" src={wendy} />
           </div>
         </div>
         <div className="imgBelowContainer">
           <div className="imgContainer">
-            <img className="img-a" src={letterT} />
+            <img className="img-a" alt="" src={letterT} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={letterC} />
+            <img className="img-a" alt="" src={letterC} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={tire} />
+            <img className="img-a" alt="" src={tire} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={oil} />
+            <img className="img-a" alt="" src={oil} />
           </div>
         </div>
         <div className="mid">
@@ -147,30 +147,30 @@ export const ResultsCardSingle = () => {
         </div>
         <div className="imgMainContainer">
           <div className="imgContainer">
-            <img className="img-a" src={atm} />
+            <img className="img-a" alt="" src={atm} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={wifi} />
+            <img className="img-a" alt="" src={wifi} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={arby} />
+            <img className="img-a" alt="" src={arby} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={wendy} />
+            <img className="img-a" alt="" src={wendy} />
           </div>
         </div>
         <div className="imgBelowContainer">
           <div className="imgContainer">
-            <img className="img-a" src={letterT} />
+            <img className="img-a" alt="" src={letterT} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={letterC} />
+            <img className="img-a" alt="" src={letterC} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={tire} />
+            <img className="img-a" alt="" src={tire} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={oil} />
+            <img className="img-a" alt="" src={oil} />
           </div>
         </div>
         <div className="mid">
@@ -189,30 +189,30 @@ export const ResultsCardSingle = () => {
         </div>
         <div className="imgMainContainer">
           <div className="imgContainer">
-            <img className="img-a" src={atm} />
+            <img className="img-a" alt="" src={atm} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={wifi} />
+            <img className="img-a" alt="" src={wifi} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={arby} />
+            <img className="img-a" alt="" src={arby} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={wendy} />
+            <img className="img-a" alt="" src={wendy} />
           </div>
         </div>
         <div className="imgBelowContainer">
           <div className="imgContainer">
-            <img className="img-a" src={letterT} />
+            <img className="img-a" alt="" src={letterT} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={letterC} />
+            <img className="img-a" alt="" src={letterC} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={tire} />
+            <img className="img-a" alt="" src={tire} />
           </div>
           <div className="imgContainer">
-            <img className="img-a" src={oil} />
+            <img className="img-a" alt="" src={oil} />
           </div>
         </div>
         <div className="mid">

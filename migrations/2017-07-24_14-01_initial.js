@@ -8,6 +8,8 @@ exports.up = function(knex) {
     table.text("state");
     table.text("city");
     table.text("highway");
+    table.boolean("wifi");
+    table.boolean("atm");
   });
 };
 

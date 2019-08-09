@@ -9,6 +9,20 @@ const coreData = allData.map((store) => {
   insertInfo.state = store.Addresses[0].State;
   insertInfo.city = store.Addresses[0].City;
   insertInfo.highway = store.Site.Highway;
+
+  //GET AMENITIES
+  const hasWifi = store.CustomFields.reduce((memo, current) => {
+    return current.CustomField.DisplayName === "WiFi" ? true : memo;
+  }, false);
+
+  insertInfo.wifi = hasWifi;
+
+  const hasATM = store.CustomFields.reduce((memo, current) => {
+    return current.CustomField.DisplayName === "ATM" ? true : memo;
+  }, false);
+
+  insertInfo.atm = hasATM;
+
   return insertInfo;
 });
 

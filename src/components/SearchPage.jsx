@@ -1,6 +1,6 @@
 import React from "react";
 import "../Search.css";
-import { SearchCriteria } from "./Search-Criteria";
+import { SearchCriteria } from "./SearchCriteria";
 
 export const SearchPage = () => {
   return (

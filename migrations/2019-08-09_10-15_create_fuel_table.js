@@ -7,7 +7,7 @@ exports.up = function(knex) {
       .references("id")
       .inTable("locations");
     table.text("name").notNullable();
-    table.float("cashPrice");
+    table.float("price");
   });
 };
 

@@ -9,7 +9,6 @@ const coreData = allData.map((store) => {
   insertInfo.state = store.Addresses[0].State;
   insertInfo.city = store.Addresses[0].City;
   insertInfo.highway = store.Site.Highway;
-  // console.log(insertInfo);
   return insertInfo;
 });
 

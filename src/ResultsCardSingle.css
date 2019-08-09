@@ -1,15 +1,9 @@
-/* 
-Things to change: height of .CardContainer to allow for scrolling. 
-Things to change: size of img in .imgContainer so that its responsive
-*/
 .CardContainer {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   width: 30%;
-  height: 400px;
+  height: 100%;
   align-items: stretch;
-  /* margin-left: auto;
-  margin-right: auto; */
   overflow: scroll;
 }
 .SingleCardContainer {
@@ -23,15 +17,14 @@ Things to change: size of img in .imgContainer so that its responsive
   background-color: #f1f1f1;
   width: 100%;
   height: 99%;
-  border-bottom: 2px solid red;
+  border-bottom: 1px solid lightgrey;
 }
 
 .header {
   grid-area: header;
   display: grid;
   grid-template-columns: 2% 90% 5%;
-  grid-template-rows: 10% 90% 2%;
-  background-color: tan;
+  grid-template-rows: 6% 90% 4%;
 }
 .header-a {
   grid-column-start: 2;
@@ -46,55 +39,52 @@ Things to change: size of img in .imgContainer so that its responsive
 .store {
   grid-area: store;
   display: grid;
-  grid-template-columns: 5% 90% 5%;
+  grid-template-columns: 6% 90% 4%;
   grid-template-rows: 10% 90% 2%;
-  background-color: mediumaquamarine;
 }
 .store-a {
   grid-column-start: 2;
   grid-row-start: 2;
   grid-row-end: 3;
   grid-column-end: 2;
-  font-size: 0.8em;
+  font-size: 0.7em;
   justify-content: left;
   text-align: left;
   align-items: center;
 }
 .imgMainContainer {
   grid-area: main;
-  background-color: green;
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
 }
 .imgContainer {
-  height: 35px;
-  width: 40px;
+  height: auto;
+  width: auto;
 }
 .img-a {
-  max-width: 100%;
-  max-height: 100%;
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-bottom: 7%;
+  max-width: 90%;
+  max-height: 87%;
+  display: block;
 }
 .imgBelowContainer {
   grid-area: mainbelow;
-  background-color: turquoise;
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
-}
-.mainbelow-a {
 }
 .mid {
   grid-area: mid;
   display: grid;
   grid-template-columns: 5% 90% 5%;
-  /* grid-template-rows: 2% 90% 8%; */
-  background-color: grey;
 }
 .mid-a {
   grid-column-start: 2;
   grid-row-start: 1;
   grid-row-end: 2;
   grid-column-end: 2;
-  font-size: 90%;
+  font-size: 0.8em;
   justify-content: left;
   text-align: left;
   align-items: center;
@@ -104,14 +94,13 @@ Things to change: size of img in .imgContainer so that its responsive
   display: grid;
   grid-template-columns: 5% 90% 5%;
   grid-template-rows: 90% 10%;
-  background-color: silver;
 }
 .footer-a {
   grid-column-start: 2;
   grid-row-start: 1;
   grid-row-end: 2;
   grid-column-end: 2;
-  font-size: 90%;
+  font-size: 0.8em;
   justify-content: left;
   text-align: left;
   align-items: c;

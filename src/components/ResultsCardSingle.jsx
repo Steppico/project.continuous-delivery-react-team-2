@@ -2,7 +2,7 @@ import React from "react";
 import "../ResultsCardSingle.css";
 import atm from "../resultsCardImage/atm.png";
 import arby from "../resultsCardImage/arby.jpg";
-import wendy from "../resultsCardImage/wendy.jpg";
+import wendy from "../resultsCardImage/wendy.png";
 import wifi from "../resultsCardImage/wifi.jpg";
 import letterT from "../resultsCardImage/letterT.png";
 import letterC from "../resultsCardImage/letterC.png";
@@ -48,7 +48,7 @@ export const ResultsCardSingle = () => {
           </div>
         </div>
         <div className="mid">
-          <p className="mid-a">Gas: $ 2.10</p>
+          <p className="mid-a">Gas: $2.10</p>
         </div>
         <div className="footer">
           <p className="footer-a">Diesel: $2.89</p>
@@ -90,7 +90,7 @@ export const ResultsCardSingle = () => {
           </div>
         </div>
         <div className="mid">
-          <p className="mid-a">Gas: $ 2.10</p>
+          <p className="mid-a">Gas: $2.10</p>
         </div>
         <div className="footer">
           <p className="footer-a">Diesel: $2.89</p>
@@ -132,7 +132,7 @@ export const ResultsCardSingle = () => {
           </div>
         </div>
         <div className="mid">
-          <p className="mid-a">Gas: $ 2.10</p>
+          <p className="mid-a">Gas: $2.10</p>
         </div>
         <div className="footer">
           <p className="footer-a">Diesel: $2.89</p>
@@ -174,7 +174,7 @@ export const ResultsCardSingle = () => {
           </div>
         </div>
         <div className="mid">
-          <p className="mid-a">Gas: $ 2.10</p>
+          <p className="mid-a">Gas: $2.10</p>
         </div>
         <div className="footer">
           <p className="footer-a">Diesel: $2.89</p>
@@ -216,7 +216,7 @@ export const ResultsCardSingle = () => {
           </div>
         </div>
         <div className="mid">
-          <p className="mid-a">Gas: $ 2.10</p>
+          <p className="mid-a">Gas: $2.10</p>
         </div>
         <div className="footer">
           <p className="footer-a">Diesel: $2.89</p>

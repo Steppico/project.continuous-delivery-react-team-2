@@ -43,7 +43,6 @@ const root = {
   Locations: async () => {
     try {
       const locations = await db.select().table("locations");
-      console.log("heyyyy", locations);
       return locations.map((location) => new Location(location));
     } catch (err) {
       console.error("Error loading locations!", err);
@@ -57,7 +56,6 @@ const root = {
         .select()
         .where("name", name)
         .table("locations");
-      console.log(locations);
       return locations.map((location) => new Location(location))[0];
     } catch (err) {
       console.error("Error loading location!", err);

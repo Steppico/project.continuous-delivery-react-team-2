@@ -9,6 +9,13 @@ export function getLocations() {
   };
 }
 
+export function setFilter(filter) {
+  return {
+    type: "SET_FILTER",
+    filter,
+  };
+}
+
 function setLocations(locations) {
   return {
     type: "SET_LOCATIONS",

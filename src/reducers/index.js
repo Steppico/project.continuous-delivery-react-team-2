@@ -1,13 +1,24 @@
 const defaultState = {
   locations: [],
-  markers: [{ position: { lat: -34.397, lng: 15.644 }, key: "adslfh" }],
+  filters: {
+    state: null,
+    city: null,
+    highway: null,
+    arbys: false,
+    wendys: false,
+    otherRestaurants: false,
+  },
 };
 
 const photos = (state = defaultState, action) => {
   switch (action.type) {
     case "SET_LOCATIONS":
-      const x = { ...state, locations: action.locations };
+      return { ...state, locations: action.locations };
+    case "SET_FILTER": {
+      const x = { ...state, filters: { ...state.filters, ...action.filter } };
+      console.log(x);
       return x;
+    }
     default:
       return state;
   }

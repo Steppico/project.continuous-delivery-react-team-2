@@ -16,6 +16,12 @@ export function setFilter(filter) {
   };
 }
 
+export function setFilteredLocations() {
+  return {
+    type: "SET_FILTERED_LOCATIONS",
+  };
+}
+
 function setLocations(locations) {
   return {
     type: "SET_LOCATIONS",

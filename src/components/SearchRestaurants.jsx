@@ -1,7 +1,7 @@
 import React from "react";
 import "../Search.css";
 import { connect } from "react-redux";
-import { setFilter } from "../actions";
+import { setFilter, setFilteredLocations } from "../actions";
 
 const Restaurants = (props) => {
   const handleSelect = (event, key) => {
@@ -51,6 +51,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setFilter: (filter) => {
       dispatch(setFilter(filter));
+      dispatch(setFilteredLocations());
     },
   };
 };

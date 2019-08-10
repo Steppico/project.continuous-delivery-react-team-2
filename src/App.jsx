@@ -8,6 +8,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <div className="titleBanner">Flying Truck Stops</div>
         <Map id="map" />
         <SearchPage />
         <br />

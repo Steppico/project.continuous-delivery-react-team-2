@@ -58,7 +58,6 @@ const truckstops = (state = defaultState, action) => {
           defaultAnimation: 2,
         })),
       };
-      //console.log(updatedState);
       return updatedState;
     }
     default:

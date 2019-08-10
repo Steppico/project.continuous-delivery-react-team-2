@@ -37,7 +37,7 @@ class Map extends Component {
         mapElement={<div style={{ height: `100%` }} />}
         onMapLoad={() => {}}
         onMapClick={() => {}}
-        markers={this.props.locations}
+        markers={this.props.filteredMarkers}
         onMarkerRightClick={() => {}}
       />
     );

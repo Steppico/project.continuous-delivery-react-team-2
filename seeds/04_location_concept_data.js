@@ -15,8 +15,6 @@ for (let i = 0; i < allData.length; i++) {
   );
 }
 
-console.log(results);
-
 exports.seed = function(knex) {
   return knex("locations_restaurants").then(() => {
     return knex("locations_restaurants").insert(results);

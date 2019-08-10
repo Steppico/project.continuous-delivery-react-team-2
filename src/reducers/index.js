@@ -24,22 +24,29 @@ const defaultState = {
 
 const truckstops = (state = defaultState, action) => {
   switch (action.type) {
-    case "SET_LOCATIONS":
+    case "SET_LOCATIONS": {
+      const updatedState = state;
       return {
-        ...state,
+        ...updatedState,
         filteredLocations: action.locations.locations,
         locations: action.locations.locations,
         markers: action.locations.markers,
         filteredMarkers: action.locations.markers,
       };
+    }
     case "SET_FILTER": {
-      return { ...state, filters: { ...state.filters, ...action.filter } };
+      const updatedState = state;
+      return {
+        ...updatedState,
+        filters: { ...state.filters, ...action.filter },
+      };
     }
     case "SET_FILTERED_LOCATIONS": {
-      const filteredLocations = state.locations.filter((location) => {
-        for (const key in state.filters) {
-          if (state.filters[key]) {
-            if (location[key] !== state.filters[key]) {
+      const stateUpdate = state;
+      const filteredLocations = stateUpdate.locations.filter((location) => {
+        for (const key in stateUpdate.filters) {
+          if (stateUpdate.filters[key]) {
+            if (location[key] !== stateUpdate.filters[key]) {
               return false;
             }
           }
@@ -47,7 +54,7 @@ const truckstops = (state = defaultState, action) => {
         return true;
       });
       const updatedState = {
-        ...state,
+        ...stateUpdate,
         filteredLocations,
         filteredMarkers: filteredLocations.map((l) => ({
           position: {
@@ -58,7 +65,6 @@ const truckstops = (state = defaultState, action) => {
           defaultAnimation: 2,
         })),
       };
-      //console.log(updatedState);
       return updatedState;
     }
     default:

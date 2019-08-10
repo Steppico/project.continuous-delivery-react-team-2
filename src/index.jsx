@@ -8,7 +8,10 @@ import { createStore, compose, applyMiddleware } from "redux";
 import App from "./App";
 import reducer from "./reducers/index";
 
-const createStoreWithMiddleware = compose(applyMiddleware(thunk))(createStore);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const createStoreWithMiddleware = composeEnhancers(applyMiddleware(thunk))(
+  createStore
+);
 
 const store = createStoreWithMiddleware(reducer);
 

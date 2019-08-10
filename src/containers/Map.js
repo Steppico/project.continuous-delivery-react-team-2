@@ -14,6 +14,7 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
   return {
     locations: state.locations,
+    filteredLocations: state.filteredLocations,
   };
 };
 

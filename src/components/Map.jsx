@@ -9,7 +9,6 @@ const MyMap = withGoogleMap((props) => (
     defaultCenter={{ lat: 25.7392, lng: -104.9903 }}
     onClick={props.onMapClick}
   >
-    <Marker position={{ lat: 14.2, lng: 100.94 }} />
     {props.markers.map((marker) => (
       <Marker
         key={marker.key}
@@ -17,7 +16,6 @@ const MyMap = withGoogleMap((props) => (
         onRightClick={() => props.onMarkerRightClick(marker)}
       />
     ))}
-    )
   </GoogleMap>
 ));
 
@@ -38,7 +36,7 @@ class Map extends Component {
         mapElement={<div style={{ height: `100%` }} />}
         onMapLoad={() => {}}
         onMapClick={() => {}}
-        markers={this.props.locations}
+        markers={this.props.filteredLocations}
         onMarkerRightClick={() => {}}
       />
     );

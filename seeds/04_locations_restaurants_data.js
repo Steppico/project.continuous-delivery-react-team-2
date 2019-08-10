@@ -16,7 +16,9 @@ for (let i = 0; i < allData.length; i++) {
 }
 
 exports.seed = function(knex) {
-  return knex("locations_restaurants").then(() => {
-    return knex("locations_restaurants").insert(results);
-  });
+  return knex("locations_restaurants")
+    .del()
+    .then(() => {
+      return knex("locations_restaurants").insert(results);
+    });
 };

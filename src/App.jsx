@@ -7,7 +7,7 @@ import { ResultsCardSingle } from "./components/ResultsCardSingle";
 class App extends Component {
   render() {
     return (
-      <div className="App" style={{ height: "100%" }}>
+      <div className="App">
         <Map id="map" />
         <SearchPage />
         <br />

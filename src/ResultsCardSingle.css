@@ -105,3 +105,9 @@
   text-align: left;
   align-items: c;
 }
+
+@media only screen and (max-width: 640px) {
+  .CardContainer {
+    width: 100%;
+  }
+}

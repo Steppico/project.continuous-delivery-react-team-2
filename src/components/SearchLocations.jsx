@@ -9,29 +9,33 @@ const Locations = (props) => {
     props.setFilter({ [key]: event.target.value });
   };
 
-  const cityDropDown = (cities) => {
-    console.log(cities);
-    // return cities.map((city, index) => {
-    //   return (
-    //     <option value={city} key={index}>
-    //       {city}
-    //     </option>
-    //   );
-    // });
-  };
-
-  const highwayDropDown = (states) => {
-    console.log("HIGHWAYS", states);
+  const cityDropDown = (states) => {
     const filter = states.filter((stateToFilter) => {
       return stateToFilter.name === props.filters.state;
     });
-    return filter.highways.map((highway, index) => {
-      return (
-        <option value={highway} key={index}>
-          {highway}
-        </option>
-      );
+    console.log("mamamaa", filter);
+    if (filter > 0 || filter[0] !== undefined)
+      return filter[0].cities.map((city, index) => {
+        return (
+          <option value={city} key={index}>
+            {city}
+          </option>
+        );
+      });
+  };
+
+  const highwayDropDown = (states) => {
+    const filter = states.filter((stateToFilter) => {
+      return stateToFilter.name === props.filters.state;
     });
+    if (filter > 0 || filter[0] !== undefined)
+      return filter[0].highways.map((highway, index) => {
+        return (
+          <option value={highway} key={index}>
+            {highway}
+          </option>
+        );
+      });
   };
 
   const stateDropDown = (states) => {
@@ -56,7 +60,7 @@ const Locations = (props) => {
       <form className="inline searchRowSubset">
         <select onChange={(e) => handleSelect(e, "city")} className="dropdown">
           <option value="City">City</option>
-          {cityDropDown(props.filteredLocations)}
+          {cityDropDown(props.states)}
         </select>
       </form>
       <form className="inline searchRowSubset">

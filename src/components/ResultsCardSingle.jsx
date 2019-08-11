@@ -11,10 +11,14 @@ import oil from "../resultsCardImage/oil.png";
 import { connect } from "react-redux";
 
 const ResultsCardSingle = (props) => {
-  console.log("proppity", props);
-
   return (
     <div className="CardContainer">
+      <h2>
+        {props.filteredLocations.length === 1
+          ? `1 result found!`
+          : `${props.filteredLocations.length} results found!`}
+        !
+      </h2>
       {props.filteredLocations.map((location, index) => {
         return (
           <div className="SingleCardContainer">

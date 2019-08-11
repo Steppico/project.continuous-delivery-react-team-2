@@ -1,8 +1,8 @@
 .CardContainer {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  width: 30%;
-  height: 100%;
+  width: 50%;
+  margin: 0 auto;
   align-items: stretch;
   overflow: scroll;
 }

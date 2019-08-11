@@ -10,6 +10,8 @@ const coreData = allData.map((store) => {
   insertInfo.city = store.Addresses[0].City;
   insertInfo.highway = store.Site.Highway;
 
+  insertInfo.store_type = store.FacilitySubtype.Name;
+
   //GET AMENITIES
   const hasWifi = store.CustomFields.reduce((memo, current) => {
     return current.CustomField.DisplayName === "WiFi" ? true : memo;

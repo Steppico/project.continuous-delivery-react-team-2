@@ -5,6 +5,12 @@ const PORT = process.env.PORT || 9000;
 
 (async () => {
   try {
+    await db.schema.hasTable("locations").then(async (exists) => {
+      if (exists) {
+        console.log("drop tables...");
+        await db.migrate.rollback();
+      }
+    });
     console.log("Running migrations...");
     await db.migrate.latest();
 

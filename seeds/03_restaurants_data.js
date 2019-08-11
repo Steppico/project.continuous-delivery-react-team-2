@@ -25,7 +25,9 @@ const uniqRestData = [
 uniqRestData.sort((a, b) => (a.id > b.id ? 1 : -1));
 
 exports.seed = function(knex) {
-  return knex("restaurants").then(() => {
-    return knex("restaurants").insert(uniqRestData);
-  });
+  return knex("restaurants")
+    .del()
+    .then(() => {
+      return knex("restaurants").insert(uniqRestData);
+    });
 };

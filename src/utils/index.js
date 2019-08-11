@@ -6,22 +6,28 @@ export async function getMarkers() {
     method: "post",
     data: {
       query: `{
-        locations{
+  locations{ 
+        id,
+        latitude,
+        longitude,
+        name,
+        address,
+        state,
+        city,
+        highway,
+        fuels{
           id,
-          latitude,
-          longitude,
           name,
-          address,
-          state,
-          city,
-          highway
-        }
-      }`,
+          locationId,
+          price
+        },
+        restaurants
+   }
+}`,
     },
   });
 
   const locations = results.data.data.locations;
-
   const markers = locations.map((l) => ({
     position: {
       lat: l.latitude,

@@ -13,32 +13,25 @@ import { connect } from "react-redux";
 const ResultsCardSingle = (props) => {
   const gasPrice = (fuels) => {
     return fuels.map((unlead) => {
-      if (unlead.name === "UNLEADED") return unlead.price.toFixed(2);
+      if (unlead.name === "UNLEADED")
+        return <p className="mid-a">Gas: ${unlead.price.toFixed(2)}</p>;
     });
   };
 
   const dieselPrice = (fuels) => {
     return fuels.map((unlead) => {
-      if (unlead.name === "DIESEL") return unlead.price.toFixed(2);
+      if (unlead.name === "DIESEL")
+        return <p className="footer-a">Diesel: ${unlead.price.toFixed(2)}</p>;
     });
   };
 
   const getRestaurants = (restaurants) => {
     return restaurants.map((restaurant) => {
-      if (restaurant.includes("Arby")) {
-        return (
-          <div className="imgContainer">
-            <img className="img-a" alt="Arby's" src={arby} />
-          </div>
-        );
-      }
-      if (restaurant.includes("Wendy")) {
-        return (
-          <div className="imgContainer">
-            <img className="img-a" alt="Wendy's" src={wendy} />
-          </div>
-        );
-      }
+      console.log(restaurant.includes("Arby"));
+      if (restaurant.match("Arby") || restaurant.match("Wendy"));
+      <div className="imgContainer">
+        <img className="img-a" alt="" src={restaurant.toLowerCase()} />
+      </div>;
     });
   };
   return (
@@ -105,15 +98,8 @@ const ResultsCardSingle = (props) => {
                 ""
               )}
             </div>
-            <div className="mid">
-              <p className="mid-a">
-                Gas:
-                {gasPrice(location.fuels)}
-              </p>
-            </div>
-            <div className="footer">
-              <p className="footer-a">Diesel: {dieselPrice(location.fuels)}</p>
-            </div>
+            <div className="mid">{gasPrice(location.fuels)}</div>
+            <div className="footer">{dieselPrice(location.fuels)}</div>
           </div>
         );
       })}

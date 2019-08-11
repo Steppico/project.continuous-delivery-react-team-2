@@ -8,6 +8,19 @@ const Locations = (props) => {
     event.preventDefault();
     props.setFilter({ [key]: event.target.value });
   };
+
+  const cityDropDown = (locations) => {
+    return new Set(
+      locations.map((location, index) => {
+        return (
+          <option value="City" key={index}>
+            {location.city}
+          </option>
+        );
+      })
+    );
+  };
+
   return (
     <div className="SearchLocationsContainer SearchAllSub">
       <div className="inline">Location: </div>
@@ -69,8 +82,7 @@ const Locations = (props) => {
       </form>
       <form className="inline searchRowSubset">
         <select onChange={(e) => handleSelect(e, "city")} className="dropdown">
-          <option value="City">City</option>
-          <option value="City1">City1</option>
+          {cityDropDown(props.filteredLocations)}
         </select>
       </form>
       <form className="inline searchRowSubset">
@@ -88,6 +100,7 @@ const Locations = (props) => {
 
 const mapStateToProps = (state) => ({
   locations: state.locations,
+  filteredLocations: state.filteredLocations,
 });
 
 const mapDispatchToProps = (dispatch) => {

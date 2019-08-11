@@ -59,18 +59,34 @@ const ResultsCardSingle = (props) => {
               )}
             </div>
             <div className="imgBelowContainer">
-              <div className="imgContainer">
-                <img className="img-a" alt="" src={letterT} />
-              </div>
-              <div className="imgContainer">
-                <img className="img-a" alt="" src={letterC} />
-              </div>
-              <div className="imgContainer">
-                <img className="img-a" alt="" src={tire} />
-              </div>
-              <div className="imgContainer">
-                <img className="img-a" alt="" src={oil} />
-              </div>
+              {location.travelStop ? (
+                <div className="imgContainer">
+                  <img className="img-a" alt="" src={letterT} />
+                </div>
+              ) : (
+                ""
+              )}
+              {location.countryStop ? (
+                <div className="imgContainer">
+                  <img className="img-a" alt="" src={letterC} />
+                </div>
+              ) : (
+                ""
+              )}
+              {location.tirePass ? (
+                <div className="imgContainer">
+                  <img className="img-a" alt="" src={tire} />
+                </div>
+              ) : (
+                ""
+              )}
+              {location.oilChange ? (
+                <div className="imgContainer">
+                  <img className="img-a" alt="" src={oil} />
+                </div>
+              ) : (
+                ""
+              )}
             </div>
             <div className="mid">
               <p className="mid-a">Gas: $2.10</p>

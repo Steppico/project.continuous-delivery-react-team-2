@@ -36,10 +36,11 @@ const truckstops = (state = defaultState, action) => {
     }
     case "SET_FILTER": {
       const updatedState = state;
-      return {
+      const test = {
         ...updatedState,
         filters: { ...state.filters, ...action.filter },
       };
+      return test;
     }
     case "SET_FILTERED_LOCATIONS": {
       const stateUpdate = state;

@@ -5,7 +5,6 @@ import { setFilter, setFilteredLocations } from "../actions";
 
 const Locations = (props) => {
   const handleSelect = (event, key) => {
-    event.preventDefault();
     props.setFilter({ [key]: event.target.value });
   };
 
@@ -13,8 +12,20 @@ const Locations = (props) => {
     return new Set(
       locations.map((location, index) => {
         return (
-          <option value="City" key={index}>
-            {location.city}
+          <option value={location.city} key={index}>
+            {`${location.city}, ${location.state}`}
+          </option>
+        );
+      })
+    );
+  };
+
+  const highwayDropDown = (locations) => {
+    return new Set(
+      locations.map((location, index) => {
+        return (
+          <option value={location.highway} key={index}>
+            {location.highway}
           </option>
         );
       })
@@ -90,8 +101,8 @@ const Locations = (props) => {
           onChange={(e) => handleSelect(e, "highway")}
           className="dropdown"
         >
+          {highwayDropDown(props.locations)}
           <option value="Highway">Highway</option>
-          <option value="Highway">Highway1</option>
         </select>
       </form>
     </div>

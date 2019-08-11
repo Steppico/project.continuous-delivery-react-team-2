@@ -12,14 +12,14 @@ const Locations = (props) => {
     const uniqueCities = [
       ...new Set(
         locations.map((location) => {
-          return location.city;
+          return props.filters.state === location.state ? location.city : null;
         })
       ),
     ];
 
     return uniqueCities.map((city, index) => {
       return (
-        <option value={city} key={index}>
+        <option value={city} key={index} placeholder="City">
           {city}
         </option>
       );
@@ -104,7 +104,7 @@ const Locations = (props) => {
       </form>
       <form className="inline searchRowSubset">
         <select onChange={(e) => handleSelect(e, "city")} className="dropdown">
-          {cityDropDown(props.filteredLocations)}
+          {cityDropDown(props.locations)}
         </select>
       </form>
       <form className="inline searchRowSubset">
@@ -123,6 +123,7 @@ const Locations = (props) => {
 const mapStateToProps = (state) => ({
   locations: state.locations,
   filteredLocations: state.filteredLocations,
+  filters: state.filters,
 });
 
 const mapDispatchToProps = (dispatch) => {

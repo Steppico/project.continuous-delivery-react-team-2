@@ -6,11 +6,14 @@ import thunk from "redux-thunk";
 import { createStore, compose, applyMiddleware } from "redux";
 
 import App from "./App";
-import reducer from "./reducers/index";
+import truckstores from "./reducers";
 
-const createStoreWithMiddleware = compose(applyMiddleware(thunk))(createStore);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const createStoreWithMiddleware = composeEnhancers(applyMiddleware(thunk))(
+  createStore
+);
 
-const store = createStoreWithMiddleware(reducer);
+const store = createStoreWithMiddleware(truckstores);
 
 ReactDOM.render(
   <Provider store={store}>

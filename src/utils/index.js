@@ -1,7 +1,26 @@
 import axios from "axios";
 
 export async function getMarkers() {
-  const { data: locations } = await axios.get("/api/locations"); // ES6 destructuring & aliasing
+  const results = await axios({
+    url: "/graphql",
+    method: "post",
+    data: {
+      query: `{
+  locations{ 
+        id,
+        latitude,
+        longitude,
+        name,
+        address,
+        state,
+        city,
+        highway
+        }
+}`,
+    },
+  });
+
+  const locations = results.data.data.locations;
   const markers = locations.map((l) => ({
     position: {
       lat: l.latitude,
@@ -10,5 +29,5 @@ export async function getMarkers() {
     key: l.name,
     defaultAnimation: 2,
   }));
-  return markers;
+  return { markers, locations };
 }

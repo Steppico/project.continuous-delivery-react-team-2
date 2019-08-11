@@ -27,9 +27,17 @@ const schema = buildSchema(`
     highways: [String]
   }
 
+  type Fuel {
+    id: Int,
+    location_id: Int,
+    name: String,
+    price: Float,
+  }
+
   type Query {
     locations(name: String, state:String, city:String, highway:String): [Location],
     states: [State]
+    fuels: [Fuel]
   }
 
   `);
@@ -42,6 +50,13 @@ const Location = function(data) {
   this.state = data.state;
   this.city = data.city;
   this.highway = data.highway;
+};
+
+const Fuel = function(data) {
+  this.id = data.id;
+  this.locationID = data.location_id;
+  this.name = data.name;
+  this.price = data.price.toFixed(2);
 };
 
 const root = {
@@ -59,6 +74,14 @@ const root = {
       return locations.map((location) => new Location(location));
     } catch (err) {
       console.error("Error loading locations!", err);
+    }
+  },
+  fuels: async (req) => {
+    try {
+      const fuels = await db.select().table("fuel");
+      return fuels.map((fuel) => new Fuel(fuel));
+    } catch (err) {
+      console.error("Error loading restaurants!", err);
     }
   },
   states: async (req) => {

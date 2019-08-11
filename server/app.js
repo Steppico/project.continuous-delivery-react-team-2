@@ -21,8 +21,15 @@ const schema = buildSchema(`
     highway:String,
   }
 
+  type State {
+    name: String,
+    cities: [String],
+    highways: [String]
+  }
+
   type Query {
     locations(name: String, state:String, city:String, highway:String): [Location],
+    states: [State]
   }
 
   `);
@@ -52,6 +59,33 @@ const root = {
       return locations.map((location) => new Location(location));
     } catch (err) {
       console.error("Error loading locations!", err);
+    }
+  },
+  states: async (req) => {
+    try {
+      const locations = await db.select().table("locations");
+      const states = {};
+      locations.forEach((location) => {
+        if (states[location.state] === undefined) {
+          states[location.state] = {
+            name: location.state,
+            cities: [],
+            highways: [],
+          };
+        }
+
+        if (!states[location.state].cities.includes(location.city)) {
+          states[location.state].cities.push(location.city);
+        }
+        if (!states[location.state].highways.includes(location.highway)) {
+          states[location.state].highways.push(location.highway);
+        }
+      });
+
+      console.log(states);
+      return Object.values(states);
+    } catch (err) {
+      console.error("Error loading states!", err);
     }
   },
 };
@@ -93,83 +127,3 @@ app.get("*", (req, res) => {
 });
 
 module.exports = app;
-
-/*
-  type AcceptedPaymentTypes {
-    SiteManagementItem: [SiteManagementItem]
-  },
-
-  type SiteManagementItem {
-    Title: String,
-    Section: String
-  },
-
-  type AdditionalAmenities {
-    SiteManagementItem: [SiteManagementItem]
-  }
-
-  type Address {
-    Address1: String,
-    Address2: String,
-    AddressId: Number,
-    City: String,
-    Name: String,
-    State: String,
-    Zip: String
-  }
-
-  type ContactMethod {
-    Type: Type,
-    Id: Number,
-    # Phone Number in String 
-    Data: String 
-  },
-
-  type Type {
-    Id: Number,
-    Name: String
-  },
-
-  type CustomFields {
-    CustomField: [CustomField]
-  },
-  type FilteredCustomFields {
-    CustomField: [CustomField]
-  },
-
-  type CustomField {
-    Id: Number,
-    Label: String,
-    Name: String,
-    Section: String
-  },
-
-  type Site {
-    FuelPrices: [Fuelprice],
-    Latitude: Float,
-    Longitude: Float,
-    Highway: String,
-    DescriptiveAddress: String,
-    ExitNumber: String,
-    SiteName: String,
-    SiteId: Number
-  }
-
-  type FuelPrice {
-    SiteId: Number,
-    FieldType: String,
-    CashPrice: Number,
-    DisplayName: String
-  },
-
-  type Station {
-
-  }
-
-  type Query {
-    AcceptedPaymentTypes: AcceptedPaymentTypes,
-    AdditionalAmenities: AdditionalAmenities,
-
-  }
-
-*/

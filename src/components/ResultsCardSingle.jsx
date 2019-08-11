@@ -22,6 +22,26 @@ const ResultsCardSingle = (props) => {
       if (unlead.name === "DIESEL") return unlead.price.toFixed(2);
     });
   };
+
+  const getRestaurants = (restaurants) => {
+    return restaurants.map((restaurant) => {
+      if (restaurant.includes("Arby")) {
+        return (
+          <div className="imgContainer">
+            <img className="img-a" alt="" src={arby} />
+          </div>
+        );
+      }
+      if (restaurant.includes("Wendy")) {
+        return (
+          <div className="imgContainer">
+            <img className="img-a" alt="" src={wendy} />
+          </div>
+        );
+      }
+    });
+  };
+  console.log("LOCATIOOOOOONS", props);
   return (
     <div className="CardContainer">
       <h2>
@@ -31,9 +51,8 @@ const ResultsCardSingle = (props) => {
         !
       </h2>
       {props.filteredLocations.map((location, index) => {
-        console.log("I AM LOCATION", location);
         return (
-          <div className="SingleCardContainer">
+          <div className="SingleCardContainer" key="SingleCardContainer">
             <div className="header">
               <p className="header-a">{location.name}</p>
             </div>
@@ -55,20 +74,7 @@ const ResultsCardSingle = (props) => {
               ) : (
                 ""
               )}
-              {location.arby ? (
-                <div className="imgContainer">
-                  <img className="img-a" alt="" src={arby} />
-                </div>
-              ) : (
-                ""
-              )}
-              {location.wendy ? (
-                <div className="imgContainer">
-                  <img className="img-a" alt="" src={wendy} />
-                </div>
-              ) : (
-                ""
-              )}
+              {getRestaurants(location.restaurants)}
             </div>
             <div className="imgBelowContainer">
               {location.store_type === "Travel Stop" ? (

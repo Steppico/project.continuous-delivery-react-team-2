@@ -5,7 +5,6 @@ import { setFilter, setFilteredLocations } from "../actions";
 
 const Type = (props) => {
   const handleChange = (event, key) => {
-    console.log("chick, chack", event.target.checked);
     if (event.target.checked === false) {
       props.setFilter({ store_type: null });
     } else {

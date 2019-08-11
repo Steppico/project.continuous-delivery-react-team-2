@@ -9,27 +9,38 @@ const Locations = (props) => {
   };
 
   const cityDropDown = (locations) => {
-    return new Set(
-      locations.map((location, index) => {
-        return (
-          <option value={location.city} key={index}>
-            {`${location.city}, ${location.state}`}
-          </option>
-        );
-      })
-    );
+    const uniqueCities = [
+      ...new Set(
+        locations.map((location) => {
+          return location.city;
+        })
+      ),
+    ];
+
+    return uniqueCities.map((city, index) => {
+      return (
+        <option value={city} key={index}>
+          {city}
+        </option>
+      );
+    });
   };
 
   const highwayDropDown = (locations) => {
-    return new Set(
-      locations.map((location, index) => {
-        return (
-          <option value={location.highway} key={index}>
-            {location.highway}
-          </option>
-        );
-      })
-    );
+    const uniqueHighways = [
+      ...new Set(
+        locations.map((location) => {
+          return location.highway;
+        })
+      ),
+    ];
+    return uniqueHighways.map((highway, index) => {
+      return (
+        <option value={highway} key={index}>
+          {highway}
+        </option>
+      );
+    });
   };
 
   return (

@@ -27,6 +27,7 @@ const schema = buildSchema(`
     highways: [String]
   }
 
+
   type Fuel {
     id: Int,
     location_id: Int,
@@ -36,7 +37,7 @@ const schema = buildSchema(`
 
   type Query {
     locations(name: String, state:String, city:String, highway:String): [Location],
-    states: [State]
+    states: [State],
     fuels: [Fuel]
   }
 

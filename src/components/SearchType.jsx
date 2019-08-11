@@ -5,7 +5,12 @@ import { setFilter, setFilteredLocations } from "../actions";
 
 const Type = (props) => {
   const handleChange = (event, key) => {
-    props.setFilter({ [key]: event.target.checked });
+    console.log("chick, chack", event.target.checked);
+    if (event.target.checked === false) {
+      props.setFilter({ store_type: null });
+    } else {
+      props.setFilter({ [key]: event.target.value });
+    }
   };
   return (
     <div className="SearchTypeContainer SearchAllSub">
@@ -13,18 +18,18 @@ const Type = (props) => {
       <div className="inline searchRowSubset">
         <input
           type="checkbox"
-          value="travelStop"
+          value="Travel Stop"
           name="travel"
-          onChange={(e) => handleChange(e, "travelStop")}
+          onChange={(e) => handleChange(e, "store_type")}
         />
         <label htmlFor="travel">Travel Stop</label>
       </div>
       <div className="inline searchRowSubset">
         <input
           type="checkbox"
-          value="countryStop"
+          value="Country Store"
           name="country"
-          onChange={(e) => handleChange(e, "countryStop")}
+          onChange={(e) => handleChange(e, "store_type")}
         />
         <label htmlFor="country">Country Stop</label>
       </div>

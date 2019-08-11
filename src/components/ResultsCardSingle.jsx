@@ -71,14 +71,14 @@ const ResultsCardSingle = (props) => {
               )}
             </div>
             <div className="imgBelowContainer">
-              {location.travelStop ? (
+              {location.store_type === "Travel Stop" ? (
                 <div className="imgContainer">
                   <img className="img-a" alt="" src={letterT} />
                 </div>
               ) : (
                 ""
               )}
-              {location.countryStop ? (
+              {location.store_type === "Country Store" ? (
                 <div className="imgContainer">
                   <img className="img-a" alt="" src={letterC} />
                 </div>

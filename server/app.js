@@ -21,6 +21,7 @@ const schema = buildSchema(`
     highway:String,
     wifi: Boolean,
     atm: Boolean,
+    store_type: String,
     fuels: [Fuel],
     restaurants:[String]
   }
@@ -56,6 +57,7 @@ const Location = function(data) {
   this.state = data.state;
   this.city = data.city;
   this.wifi = data.wifi;
+  this.store_type = data.store_type;
   this.atm = data.atm;
   this.highway = data.highway;
   this.fuels = data.fuels;

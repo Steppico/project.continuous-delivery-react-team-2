@@ -14,8 +14,15 @@ export async function getMarkers() {
         address,
         state,
         city,
-        highway
-        }
+        highway,
+        fuels{
+          id,
+          name,
+          locationId,
+          price
+        },
+        restaurants
+   }
 }`,
     },
   });

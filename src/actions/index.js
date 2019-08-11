@@ -39,7 +39,6 @@ function setLocations(locations) {
 }
 
 function setStatesCitiesHighways(states) {
-  console.log("citititi", states);
   return {
     type: "SET_STATES",
     states,

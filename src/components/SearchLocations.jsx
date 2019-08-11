@@ -13,7 +13,6 @@ const Locations = (props) => {
     const filter = states.filter((stateToFilter) => {
       return stateToFilter.name === props.filters.state;
     });
-    console.log("mamamaa", filter);
     if (filter > 0 || filter[0] !== undefined)
       return filter[0].cities.map((city, index) => {
         return (

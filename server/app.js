@@ -19,6 +19,8 @@ const schema = buildSchema(`
     state: String,
     city: String,
     highway:String,
+    fuels: [Fuel],
+    restaurants:[String]
   }
 
   type State {
@@ -27,9 +29,19 @@ const schema = buildSchema(`
     highways: [String]
   }
 
+
+  type Fuel {
+    id: Int,
+    locationId: Int,
+    name: String,
+    price: Float,
+  }
+  
+
   type Query {
     locations(name: String, state:String, city:String, highway:String): [Location],
-    states: [State]
+    states: [State],
+    fuels: [Fuel]
   }
 
   `);
@@ -42,6 +54,15 @@ const Location = function(data) {
   this.state = data.state;
   this.city = data.city;
   this.highway = data.highway;
+  this.fuels = data.fuels;
+  this.restaurants = data.restaurants;
+};
+
+const Fuel = function(data) {
+  this.id = data.id;
+  this.locationId = data.location_id;
+  this.name = data.name;
+  this.price = data.price.toFixed(2);
 };
 
 const root = {
@@ -56,9 +77,61 @@ const root = {
           .where(req)
           .table("locations");
       }
+      const fuelsData = await db.select().table("fuel");
+
+      fuelsData.forEach((fuelObj) => {
+        if (
+          !Object.prototype.hasOwnProperty.call(
+            locations[fuelObj.location_id - 1],
+            "fuels"
+          )
+        ) {
+          locations[fuelObj.location_id - 1].fuels = [];
+        }
+
+        locations[fuelObj.location_id - 1].fuels.push(fuelObj);
+      });
+
+      const restaurantsData = await db
+        .from("locations")
+        .innerJoin(
+          "locations_restaurants",
+          "locations.id",
+          "locations_restaurants.location_id"
+        )
+        .innerJoin(
+          "restaurants",
+          "restaurants.id",
+          "locations_restaurants.restaurant_id"
+        );
+
+      restaurantsData.forEach((restaurantLocationObject) => {
+        if (restaurantLocationObject.name)
+          if (
+            !Object.prototype.hasOwnProperty.call(
+              locations[restaurantLocationObject.location_id - 1],
+              "restaurants"
+            )
+          ) {
+            locations[
+              restaurantLocationObject.location_id - 1
+            ].restaurants = [];
+          }
+        locations[restaurantLocationObject.location_id - 1].restaurants.push(
+          restaurantLocationObject.name
+        );
+      });
       return locations.map((location) => new Location(location));
     } catch (err) {
       console.error("Error loading locations!", err);
+    }
+  },
+  fuels: async (req) => {
+    try {
+      const fuels = await db.select().table("fuel");
+      return fuels.map((fuel) => new Fuel(fuel));
+    } catch (err) {
+      console.error("Error loading restaurants!", err);
     }
   },
   states: async (req) => {

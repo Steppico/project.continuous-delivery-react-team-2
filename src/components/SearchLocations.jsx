@@ -1,12 +1,18 @@
 import React from "react";
 import "../Search.css";
+import { connect } from "react-redux";
+import { setFilter, setFilteredLocations } from "../actions";
 
-export const Locations = () => {
+const Locations = (props) => {
+  const handleSelect = (event, key) => {
+    event.preventDefault();
+    props.setFilter({ [key]: event.target.value });
+  };
   return (
     <div className="SearchLocationsContainer SearchAllSub">
       <div className="inline">Location: </div>
       <form className="inline rowTitle">
-        <select className="dropdown">
+        <select className="dropdown" onChange={(e) => handleSelect(e, "state")}>
           <option value="State">State</option>
           <option value="AL">AL</option>
           <option value="AK">AK</option>
@@ -62,13 +68,16 @@ export const Locations = () => {
         </select>
       </form>
       <form className="inline searchRowSubset">
-        <select className="dropdown">
+        <select onChange={(e) => handleSelect(e, "city")} className="dropdown">
           <option value="City">City</option>
           <option value="City1">City1</option>
         </select>
       </form>
       <form className="inline searchRowSubset">
-        <select className="dropdown">
+        <select
+          onChange={(e) => handleSelect(e, "highway")}
+          className="dropdown"
+        >
           <option value="Highway">Highway</option>
           <option value="Highway">Highway1</option>
         </select>
@@ -76,3 +85,21 @@ export const Locations = () => {
     </div>
   );
 };
+
+const mapStateToProps = (state) => ({
+  locations: state.locations,
+});
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setFilter: (filter) => {
+      dispatch(setFilter(filter));
+      dispatch(setFilteredLocations());
+    },
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Locations);

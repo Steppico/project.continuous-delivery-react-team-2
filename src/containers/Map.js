@@ -11,9 +11,17 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({
+  locations,
+  filteredLocations,
+  markers,
+  filteredMarkers,
+}) => {
   return {
-    locations: state.locations,
+    locations,
+    filteredLocations,
+    markers,
+    filteredMarkers,
   };
 };
 

@@ -11,6 +11,17 @@ import oil from "../resultsCardImage/oil.png";
 import { connect } from "react-redux";
 
 const ResultsCardSingle = (props) => {
+  const gasPrice = (fuels) => {
+    return fuels.map((unlead) => {
+      if (unlead.name === "UNLEADED") return unlead.price.toFixed(2);
+    });
+  };
+
+  const dieselPrice = (fuels) => {
+    return fuels.map((unlead) => {
+      if (unlead.name === "DIESEL") return unlead.price.toFixed(2);
+    });
+  };
   return (
     <div className="CardContainer">
       <h2>
@@ -20,10 +31,11 @@ const ResultsCardSingle = (props) => {
         !
       </h2>
       {props.filteredLocations.map((location, index) => {
+        console.log("I AM LOCATION", location);
         return (
           <div className="SingleCardContainer">
             <div className="header">
-              <p className="header-a">{location.address1}</p>
+              <p className="header-a">{location.name}</p>
             </div>
             <div className="store">
               <p className="store-a">{`#${index + 1}`}</p>
@@ -89,12 +101,13 @@ const ResultsCardSingle = (props) => {
               )}
             </div>
             <div className="mid">
-              <p className="mid-a">Gas: {location.gas || "Coming soon"}</p>
+              <p className="mid-a">
+                Gas:
+                {gasPrice(location.fuels)}
+              </p>
             </div>
             <div className="footer">
-              <p className="footer-a">
-                Diesel: {location.diesel || "Coming soon"}
-              </p>
+              <p className="footer-a">Diesel: {dieselPrice(location.fuels)}</p>
             </div>
           </div>
         );

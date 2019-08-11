@@ -15,6 +15,8 @@ export async function getMarkers() {
         state,
         city,
         highway,
+        wifi,
+        atm,
         fuels{
           id,
           name,

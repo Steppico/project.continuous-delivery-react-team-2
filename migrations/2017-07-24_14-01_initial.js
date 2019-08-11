@@ -13,6 +13,7 @@ exports.up = function(knex) {
     table.text("highway");
     table.boolean("wifi");
     table.boolean("atm");
+    table.text("store_type");
   });
 };
 

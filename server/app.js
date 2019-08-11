@@ -30,7 +30,7 @@ const schema = buildSchema(`
 
   type Fuel {
     id: Int,
-    location_id: Int,
+    locationId: Int,
     name: String,
     price: Float,
   }
@@ -55,7 +55,7 @@ const Location = function(data) {
 
 const Fuel = function(data) {
   this.id = data.id;
-  this.locationID = data.location_id;
+  this.locationId = data.location_id;
   this.name = data.name;
   this.price = data.price.toFixed(2);
 };

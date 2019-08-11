@@ -82,7 +82,6 @@ const root = {
         }
       });
 
-      console.log(states);
       return Object.values(states);
     } catch (err) {
       console.error("Error loading states!", err);

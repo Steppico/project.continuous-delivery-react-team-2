@@ -28,20 +28,19 @@ const ResultsCardSingle = (props) => {
       if (restaurant.includes("Arby")) {
         return (
           <div className="imgContainer">
-            <img className="img-a" alt="" src={arby} />
+            <img className="img-a" alt="Arby's" src={arby} />
           </div>
         );
       }
       if (restaurant.includes("Wendy")) {
         return (
           <div className="imgContainer">
-            <img className="img-a" alt="" src={wendy} />
+            <img className="img-a" alt="Wendy's" src={wendy} />
           </div>
         );
       }
     });
   };
-  console.log("LOCATIOOOOOONS", props);
   return (
     <div className="CardContainer">
       <h2>

@@ -24,6 +24,7 @@ class Map extends Component {
   async componentDidMount() {
     if (this.props.locations.length <= 0) {
       this.props.getLocations();
+      this.props.actionStatesCitiesHighways();
     }
   }
 

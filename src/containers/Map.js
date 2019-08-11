@@ -1,11 +1,15 @@
 import { connect } from "react-redux";
 import Map from "../components/Map";
-import { getLocations } from "../actions/index";
+import { getLocations, actionStatesCitiesHighways } from "../actions/index";
 
 const mapDispatchToProps = (dispatch) => {
   return {
     getLocations: () => {
       const res = getLocations();
+      dispatch(res);
+    },
+    actionStatesCitiesHighways: () => {
+      const res = actionStatesCitiesHighways();
       dispatch(res);
     },
   };

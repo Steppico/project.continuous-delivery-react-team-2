@@ -1,5 +1,6 @@
 const defaultState = {
   locations: [],
+  states: [],
   markers: [],
   filteredMarkers: [],
   filteredLocations: [],
@@ -34,13 +35,19 @@ const truckstops = (state = defaultState, action) => {
         filteredMarkers: action.locations.markers,
       };
     }
+    case "SET_STATES": {
+      const updatedState = {
+        ...state,
+        states: action.states.states,
+      };
+      return updatedState;
+    }
     case "SET_FILTER": {
       const updatedState = state;
-      const test = {
+      return {
         ...updatedState,
         filters: { ...state.filters, ...action.filter },
       };
-      return test;
     }
     case "SET_FILTERED_LOCATIONS": {
       const stateUpdate = state;

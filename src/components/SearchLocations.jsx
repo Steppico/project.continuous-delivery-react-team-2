@@ -104,6 +104,7 @@ const Locations = (props) => {
       </form>
       <form className="inline searchRowSubset">
         <select onChange={(e) => handleSelect(e, "city")} className="dropdown">
+          <option value="Highway">City</option>
           {cityDropDown(props.locations)}
         </select>
       </form>
@@ -112,8 +113,8 @@ const Locations = (props) => {
           onChange={(e) => handleSelect(e, "highway")}
           className="dropdown"
         >
-          {highwayDropDown(props.locations)}
           <option value="Highway">Highway</option>
+          {highwayDropDown(props.locations)}
         </select>
       </form>
     </div>

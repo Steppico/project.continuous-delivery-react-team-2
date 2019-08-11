@@ -89,10 +89,12 @@ const ResultsCardSingle = (props) => {
               )}
             </div>
             <div className="mid">
-              <p className="mid-a">Gas: $2.10</p>
+              <p className="mid-a">Gas: {location.gas || "Coming soon"}</p>
             </div>
             <div className="footer">
-              <p className="footer-a">Diesel: $2.89</p>
+              <p className="footer-a">
+                Diesel: {location.diesel || "Coming soon"}
+              </p>
             </div>
           </div>
         );

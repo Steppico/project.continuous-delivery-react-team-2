@@ -57,12 +57,12 @@ const truckstops = (state = defaultState, action) => {
       const updatedState = {
         ...stateUpdate,
         filteredLocations,
-        filteredMarkers: filteredLocations.map((l) => ({
+        filteredMarkers: filteredLocations.map((location) => ({
           position: {
-            lat: l.latitude,
-            lng: l.longitude,
+            lat: location.latitude,
+            lng: location.longitude,
           },
-          key: l.name,
+          key: location.name,
           defaultAnimation: 2,
         })),
       };
